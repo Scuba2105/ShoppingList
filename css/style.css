@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap");
+body {
+  background-color: #f1c69e;
+  font-family: "Kalam", "serif";
+}
+
+.layout {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Kalam", "serif";
+  font-size: 60px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.container .select, .container .import, .container .current {
+  height: 600px;
+  width: 500px;
+  background-color: #ffffff;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .select .search-back, .container .import .search-back, .container .current .search-back {
+  width: 100%;
+  background-color: black;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.container .select .search-back h1, .container .import .search-back h1, .container .current .search-back h1 {
+  width: 200px;
+  font-size: 35px;
+  color: white;
+}
+.container .select .search-back label, .container .import .search-back label, .container .current .search-back label {
+  margin: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: -40px;
+  color: white;
+  transform: translateX(-170px);
+}
+.container .select .search-back .search, .container .import .search-back .search, .container .current .search-back .search {
+  position: relative;
+  top: 55px;
+  left: 180px;
+  height: 50px;
+  width: 50px;
+}
+.container .select .search-back .search .search-img, .container .import .search-back .search .search-img, .container .current .search-back .search .search-img {
+  height: 40px;
+  width: 40px;
+}
+.container .select .search-back .search:hover, .container .import .search-back .search:hover, .container .current .search-back .search:hover {
+  cursor: pointer;
+}
+.container .select input, .container .import input, .container .current input {
+  width: 400px;
+  height: 50px;
+  border-radius: 8px;
+  font-size: 20px;
+}
+.container .select .circle, .container .import .circle, .container .current .circle {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background-color: #f4aa65;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container .select .circle .item, .container .import .circle .item, .container .current .circle .item {
+  font-size: 28px;
+  font-weight: bold;
+}
+.container .select .circle .freq, .container .import .circle .freq, .container .current .circle .freq {
+  transform: translateY(-20px);
+}
+.container .select .circle .order, .container .import .circle .order, .container .current .circle .order {
+  font-weight: bold;
+}
+.container .select .circle .add, .container .import .circle .add, .container .current .circle .add {
+  height: 50px;
+  width: 120px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(81, 95, 221);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .select .circle .select-button:hover, .container .import .circle .select-button:hover, .container .current .circle .select-button:hover {
+  cursor: pointer;
+}

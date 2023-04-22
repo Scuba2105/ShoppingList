@@ -1,0 +1,151 @@
+@use 'sass:list';
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
+
+// Variables for image sizes and button colors
+$image-size: 100px;
+$button-colors-font: (rgb(201, 50, 50), rgb(39, 70, 173), rgb(3, 135, 95));
+$button-colors-background: (rgb(243, 191, 191), rgb(200, 210, 245),linear-gradient(rgb(194, 243, 228),rgb(49, 166, 131)));
+$button-width: 324px;
+
+// Mixin
+@mixin button($n: white, $m: black) {
+    font-family: 'Kalam', 'serif';
+    font-size: 30px;
+    border-radius: 15px;
+    width: $button-width;
+    height: 200px;
+    background: $n;
+    color: $m;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin button-image {
+    width: $image-size;
+    height: $image-size;
+}
+
+// Define the SASS for the css page
+body {
+    background-color: #f1c69e;
+    font-family: 'Kalam', 'serif';
+}
+
+.layout {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+h1 {
+    font-family: 'Kalam', 'serif';
+    font-size: 60px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    .select, .import, .current {
+        height: 600px;
+        width: 500px;
+        background-color: #ffffff;
+        border-radius: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        .search-back {
+            width: 100%;
+            background-color: black;
+            border-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 20px;
+            h1 {
+                width: 200px;
+                font-size: 35px;
+                color: white;
+            }
+            label {
+                margin: 10px;
+                font-size: 25px;
+                font-weight: bold;
+                margin-bottom: -40px;
+                color: white;
+                transform: translateX(-170px);
+            }
+            .search {
+                position: relative;
+                top: 55px;
+                left: 180px;
+                height: 50px;
+                width: 50px;
+                .search-img {
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+            .search:hover {
+                cursor: pointer;
+            }
+        }
+        
+        input {
+            width: 400px;
+            height: 50px;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+        .circle {
+            height: 300px;
+            width: 300px;
+            border-radius: 50%;
+            background-color: #f4aa65;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;  
+            .item {
+                font-size: 28px;
+                font-weight: bold;
+            }    
+            .freq {
+                transform: translateY(-20px);
+            }      
+            .order {
+                font-weight: bold;
+            }
+            .add {
+                height: 50px;
+                width: 120px;
+                font-size: 20px;
+                font-weight: bold;
+                color: white;
+                background-color: rgb(81, 95, 221);
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .select-button:hover {
+                cursor: pointer;
+            }
+        }
+        
+    }
+}
+
+
+
