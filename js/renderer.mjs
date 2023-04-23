@@ -1,12 +1,12 @@
-// Read the available shopping items into a variable
-let itemArray;
-getData();
+import {ipcRenderer} from '../node_modules/electron';
 
-async function getData() {
-    const itemData = await window.electronAPI.sendData();
-    console.log(itemData, itemArray);
-}
+// Async message handler
+ipcRenderer.on('dataSent', (event, arg) => {
+    console.log(arg);
+ });
 
+ // Async message sender
+ ipcRenderer.send('requestData', 'requesting data');
 
 // Initialise shopping list to add items.
 const shoppingList = [];
