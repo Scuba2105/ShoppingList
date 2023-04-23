@@ -1,3 +1,13 @@
+// Read the available shopping items into a variable
+let itemArray;
+getData();
+
+async function getData() {
+    const itemData = await window.electronAPI.sendData();
+    console.log(itemData);
+}
+
+
 // Initialise shopping list to add items.
 const shoppingList = [];
 

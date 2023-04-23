@@ -1,13 +1,11 @@
-import { app, BrowserWindow, ipcMain, dialog } from 'electron';
-import path from 'path';
+const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require('path');
+const fs = require('fs');
 
 async function sendData () {
-  const { canceled, filePaths } = await dialog.showOpenDialog()
-  if (canceled) {
-
-  } else {
-    return filePaths[0]
-  }
+  const data = fs.readFileSync(path.join(__dirname, 'data', 'shopping_items.json'))
+  const dataArray = JSON.parse(data);
+  return JSON.stringify(dataArray);
 }
 
 function createWindow () {
@@ -16,10 +14,12 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     }
   })
+  mainWindow.webContents.openDevTools();
   mainWindow.loadFile('./html/index.html')
 }
 
 app.whenReady().then(() => {
+    console.log('App is loading');
     ipcMain.handle('data:sendData', sendData)
     createWindow()
     app.on('activate', function () {
