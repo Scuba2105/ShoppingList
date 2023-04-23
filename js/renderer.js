@@ -4,7 +4,7 @@ getData();
 
 async function getData() {
     const itemData = await window.electronAPI.sendData();
-    console.log(itemData);
+    console.log(itemData, itemArray);
 }
 
 
