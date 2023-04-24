@@ -1,12 +1,6 @@
-import {ipcRenderer} from '../node_modules/electron';
-
-// Async message handler
-ipcRenderer.on('dataSent', (event, arg) => {
-    console.log(arg);
- });
-
- // Async message sender
- ipcRenderer.send('requestData', 'requesting data');
+// Request the data from the main process
+const data = await window.electronAPI.sendData
+console.log(data);
 
 // Initialise shopping list to add items.
 const shoppingList = [];

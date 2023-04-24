@@ -20,28 +20,16 @@ export function buildPug() {
 };
 
 gulp.task('browserify', () => {
-    var b = browserify('./js/renderer.js', {
-      debug: true,
+    gulp.src ('./js/renderer.js')
+        .pipe(browserify({
+      debug: false,
       ignoreMissing: true,
       builtins: false,
       commondir: false,
-      detectGlobals: false
-    });
-    b.external('fs');  // HERE
-    b.external('electron');
-    b.external('electron-updater');
-    b.external('electron-settings');
-    b.external('path');
-    b.external('url');
-    b.external('sqlite3');
-    b.external('express');
-    b.external('net');
-    b.external('body-parser');
-    b.bundle()
-      .pipe(source('electron.min.js'))
-      .pipe(buffer())
-      .pipe(uglify())
-      .pipe(gulp.dest('./build'));
+      detectGlobals: false,
+      bare: true
+    }))
+        .pipe(gulp.dest('./build'));
 });
 
 
