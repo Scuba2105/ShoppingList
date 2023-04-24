@@ -1,6 +1,10 @@
 // Request the data from the main process
-const data = await window.electronAPI.sendData
-console.log(data);
+async function getData() {
+    const data = await window.electronAPI.sendData
+    console.log(data);
+}
+
+getData();
 
 // Initialise shopping list to add items.
 const shoppingList = [];

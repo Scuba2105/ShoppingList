@@ -6,8 +6,10 @@ const fs = require('fs');
 async function sendData () {
   const data = fs.readFileSync(path.join(__dirname, 'data', 'shopping_items.json'))
   const dataArray = JSON.parse(data);
-  return JSON.stringify(dataArray);
+  mainWindow.webContents.send()
 };
+
+ipcMain.handle('data:sendData', sendData)
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
@@ -22,7 +24,6 @@ function createWindow () {
 
 app.whenReady().then(() => {
     console.log('App is loading');
-    ipcMain.handle('data:sendData', sendData)
     createWindow()
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0) {
