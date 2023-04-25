@@ -13,14 +13,23 @@ ipcMain.handle('data:sendData', sendData)
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
+    width: 1200,
+    height: 1000,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolated: false
     }
   })
+  mainWindow.setMenu(null);
+  mainWindow.webContents.on('did-finish-load', () => {
+    const version = require('./package.json').version;
+    const windowTitle = `Shopping List Generator ${version}`;
+    mainWindow.setTitle(windowTitle);
+  });
   mainWindow.webContents.openDevTools();
   mainWindow.loadFile('./html/index.html')
 }
+
 
 app.whenReady().then(() => {
     console.log('App is loading');
@@ -31,6 +40,8 @@ app.whenReady().then(() => {
         }
     })
 })
+
+
 
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit()
