@@ -4,10 +4,14 @@ let availableItems = [];
 // Initialise shopping list to add items.
 const shoppingList = [];
 
-// Request the data from the main process
+// Request the available items data from the main process
 async function getData() {
+    
+    // Retreive the available items data and store in array
     const data = await window.electronAPI.sendData();
     availableItems.push(...data);
+
+    // Filter the available items data for weekly purchased items and add to the shopping list 
     const weeklyItems = availableItems.filter((item) => {
         return item.frequency == 'Weekly';
     });
@@ -33,10 +37,15 @@ function hoverPointer() {
 // Add current selected item to the current shopping list. 
 addToList.addEventListener('click', () => {
     const selection = selectedItem.textContent;
-    if (!shoppingList.includes(selection)) {
+    const itemNames = shoppingList.map((item) => {
+        return item.name;
+    })
+    if (!itemNames.includes(selection)) {
         shoppingList.push(selection);
     }
-    console.log(shoppingList);
+    else {
+        alert('This item has already been purchased');
+    }
 });
 
 // Update the selection list base on search input
