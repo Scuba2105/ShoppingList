@@ -12,12 +12,16 @@ html(lang='en')
       h1 Shopping List App
       .container
         .select
-          .search-back
+          .title-container
             h1.select-title Select Item
+          .search-container
             label Search
+            input(type='text', placeholder='Enter shopping item here')
             .search
               img.search-img(src='../image/search.svg')
-            input(type='text', placeholder='Enter shopping item here')
+          ul.search-list.
+            
+            
           .circle
             p.item Blueberries
             p.freq

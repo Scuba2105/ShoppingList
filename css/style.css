@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap");
 body {
-  background-color: #f1c69e;
+  background-color: #9ea2f1;
   font-family: "Kalam", "serif";
   overflow: hidden;
 }
@@ -17,6 +17,7 @@ body {
 h1 {
   font-family: "Kalam", "serif";
   font-size: 60px;
+  color: rgb(2, 7, 54);
 }
 
 .container {
@@ -27,6 +28,7 @@ h1 {
   transform: translateY(-60px);
 }
 .container .select, .container .import, .container .current {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   height: 600px;
   width: 420px;
   background-color: #ffffff;
@@ -36,58 +38,84 @@ h1 {
   justify-content: flex-start;
   align-items: center;
 }
-.container .select .search-back, .container .import .search-back, .container .current .search-back {
+.container .select .title-container, .container .import .title-container, .container .current .title-container {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
-  background-color: black;
-  border-radius: 40px;
+  height: 90px;
+  background-color: rgb(2, 7, 54);
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 20px;
 }
-.container .select .search-back h1, .container .import .search-back h1, .container .current .search-back h1 {
+.container .select .title-container h1, .container .import .title-container h1, .container .current .title-container h1 {
+  font-family: "Kalam";
   width: 200px;
   font-size: 35px;
   color: white;
 }
-.container .select .search-back label, .container .import .search-back label, .container .current .search-back label {
+.container .select .search-container, .container .import .search-container, .container .current .search-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .select .search-container label, .container .import .search-container label, .container .current .search-container label {
   margin: 10px;
   font-size: 25px;
   font-weight: bold;
-  margin-bottom: -40px;
-  color: white;
-  transform: translateX(-170px);
+  color: rgb(2, 7, 54);
+  transform: translateX(-135px);
 }
-.container .select .search-back .search, .container .import .search-back .search, .container .current .search-back .search {
-  position: relative;
-  top: 55px;
-  left: 180px;
+.container .select .search-container .search, .container .import .search-container .search, .container .current .search-container .search {
   height: 50px;
   width: 50px;
+  transform: translate(150px, -47px);
+  z-index: 10;
 }
-.container .select .search-back .search .search-img, .container .import .search-back .search .search-img, .container .current .search-back .search .search-img {
+.container .select .search-container .search .search-img, .container .import .search-container .search .search-img, .container .current .search-container .search .search-img {
   height: 40px;
   width: 40px;
 }
-.container .select .search-back .search:hover, .container .import .search-back .search:hover, .container .current .search-back .search:hover {
+.container .select .search-container .search:hover, .container .import .search-container .search:hover, .container .current .search-container .search:hover {
   cursor: pointer;
 }
-.container .select input, .container .import input, .container .current input {
+.container .select .search-container input, .container .import .search-container input, .container .current .search-container input {
   width: 350px;
   height: 50px;
   border-radius: 8px;
   font-size: 20px;
+  z-index: 5;
+}
+.container .select .search-list, .container .import .search-list, .container .current .search-list {
+  opacity: 0;
+  position: absolute;
+  top: 184.5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  list-style: none;
+  width: 310px;
+  z-index: 15;
+  background-color: white;
+  height: 290px;
+  overflow: hidden;
+}
+.container .select .search-list li, .container .import .search-list li, .container .current .search-list li {
+  margin: 8px;
 }
 .container .select .circle, .container .import .circle, .container .current .circle {
   height: 300px;
   width: 300px;
   border-radius: 50%;
-  background-color: #f4aa65;
+  background-color: rgb(2, 7, 54);
+  color: white;
   margin-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transform: translateY(-30px);
 }
 .container .select .circle .item, .container .import .circle .item, .container .current .circle .item {
   font-size: 28px;
@@ -103,9 +131,8 @@ h1 {
   height: 50px;
   width: 120px;
   font-size: 20px;
-  font-weight: bold;
   color: white;
-  background-color: rgb(81, 95, 221);
+  background-color: #5050f5;
   border-radius: 10px;
   display: flex;
   justify-content: center;

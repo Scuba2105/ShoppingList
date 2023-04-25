@@ -3,36 +3,14 @@
 // Import Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
 
-// Variables for image sizes and button colors
-$image-size: 100px;
-$button-colors-font: (rgb(201, 50, 50), rgb(39, 70, 173), rgb(3, 135, 95));
-$button-colors-background: (rgb(243, 191, 191), rgb(200, 210, 245),linear-gradient(rgb(194, 243, 228),rgb(49, 166, 131)));
-$button-width: 324px;
-
-// Mixin
-@mixin button($n: white, $m: black) {
-    font-family: 'Kalam', 'serif';
-    font-size: 30px;
-    border-radius: 15px;
-    width: $button-width;
-    height: 200px;
-    background: $n;
-    color: $m;
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
-@mixin button-image {
-    width: $image-size;
-    height: $image-size;
-}
+// Define variables for color scheme
+$dark-theme-color: rgb(2, 7, 54);
+$medium-theme-color: #5050f5;
+$light-theme-color: #9ea2f1;
 
 // Define the SASS for the css page
 body {
-    background-color: #f1c69e;
+    background-color: $light-theme-color;
     font-family: 'Kalam', 'serif';
     overflow: hidden;
 }
@@ -49,6 +27,7 @@ body {
 h1 {
     font-family: 'Kalam', 'serif';
     font-size: 60px;
+    color: $dark-theme-color;
 }
 
 .container {
@@ -58,6 +37,7 @@ h1 {
     width: 100%;
     transform: translateY(-60px);
     .select, .import, .current {
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
         height: 600px;
         width: 420px;
         background-color: #ffffff;
@@ -66,59 +46,88 @@ h1 {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        .search-back {
+        .title-container {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             width: 100%;
-            background-color: black;
-            border-radius: 40px;
+            height: 90px;
+            background-color: $dark-theme-color;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-bottom: 20px;
             h1 {
+                font-family: 'Kalam';
                 width: 200px;
                 font-size: 35px;
                 color: white;
             }
+        }
+
+        .search-container {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             label {
                 margin: 10px;
                 font-size: 25px;
                 font-weight: bold;
-                margin-bottom: -40px;
-                color: white;
-                transform: translateX(-170px);
+                color: rgb(2, 7, 54);
+                transform: translateX(-135px);
             }
             .search {
-                position: relative;
-                top: 55px;
-                left: 180px;
-                height: 50px;
-                width: 50px;
-                .search-img {
-                    height: 40px;
-                    width: 40px;
+                    height: 50px;
+                    width: 50px;
+                    transform: translate(150px, -47px);
+                    z-index: 10;
+                    .search-img {
+                        height: 40px;
+                        width: 40px;
+                    }
                 }
-            }
+
             .search:hover {
                 cursor: pointer;
             }
+                    
+            input {
+                width: 350px;
+                height: 50px;
+                border-radius: 8px;
+                font-size: 20px;
+                z-index: 5;
+            }
         }
-        
-        input {
-            width: 350px;
-            height: 50px;
-            border-radius: 8px;
-            font-size: 20px;
+        .search-list {
+            opacity: 0;
+            position: absolute;
+            top: 184.5px;
+            border: 1px solid black;
+            border-radius: 5px;
+            list-style: none;
+            width: 310px;
+            z-index: 15;
+            background-color: white;
+            height: 290px;
+            overflow: hidden;
+            li {
+                margin: 8px;
+            }
         }
+
         .circle {
             height: 300px;
             width: 300px;
             border-radius: 50%;
-            background-color: #f4aa65;
+            background-color: $dark-theme-color;
+            color: white;
             margin-top: 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;  
+            align-items: center;
+            transform: translateY(-30px);  
             .item {
                 font-size: 28px;
                 font-weight: bold;
@@ -133,9 +142,9 @@ h1 {
                 height: 50px;
                 width: 120px;
                 font-size: 20px;
-                font-weight: bold;
+                //font-weight: bold;
                 color: white;
-                background-color: rgb(81, 95, 221);
+                background-color: $medium-theme-color;
                 border-radius: 10px;
                 display: flex;
                 justify-content: center;

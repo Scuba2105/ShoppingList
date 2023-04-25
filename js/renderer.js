@@ -22,10 +22,11 @@ async function getData() {
 getData();
 
 // Get the search box element and search icon.
-const searchBox = document.querySelector('.search-back input');
+const searchBox = document.querySelector('.search-container input');
 const searchIcon = document.querySelector('.search');
 const selectedItem = document.querySelector('.item');
 const addToList = document.querySelector('.select_button');
+const searchList = document.querySelector('.search-list');
 
 // Change the cursor to pointer when mouse is over the button
 addToList.addEventListener('mouseover', hoverPointer);
@@ -53,6 +54,22 @@ searchBox.addEventListener('keyup', updateSearchList)
 
 function updateSearchList() {
     const searchInput = this.value;
+    console.log(searchInput.length)
+    if (searchInput.length > 0) {
+        searchList.style.opacity = 1;
+    } 
+    const itemNames = availableItems.map((item) => {
+        return item.name;
+    });
+    const regex = new RegExp(`${searchInput}`, 'ig');
+    const matchedItems = itemNames.filter((item) => {
+        return regex.test(item);
+    });
+    const searchListEntries = matchedItems.map((item) => {
+        return `<li>${item}<li>`;
+    }).join('');
+    searchList.innerHTML = searchListEntries;
 };
+
 
 
