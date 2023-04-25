@@ -1,13 +1,21 @@
-// Request the data from the main process
-async function getData() {
-    const data = await window.electronAPI.sendData
-    console.log(data);
-}
-
-getData();
+// Initialise available shopping items.
+let availableItems = [];
 
 // Initialise shopping list to add items.
 const shoppingList = [];
+
+// Request the data from the main process
+async function getData() {
+    const data = await window.electronAPI.sendData();
+    availableItems.push(...data);
+    const weeklyItems = availableItems.filter((item) => {
+        return item.frequency == 'Weekly';
+    });
+    shoppingList.push(...weeklyItems);
+    console.log(shoppingList);
+}
+
+getData();
 
 // Get the search box element and search icon.
 const searchBox = document.querySelector('.search-back input');

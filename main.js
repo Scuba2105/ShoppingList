@@ -3,10 +3,10 @@ const path = require('path');
 const fs = require('fs');
 
 // Define the async function for sending the data to the renderer process.
-async function sendData () {
+async function sendData() {
   const data = fs.readFileSync(path.join(__dirname, 'data', 'shopping_items.json'))
   const dataArray = JSON.parse(data);
-  mainWindow.webContents.send()
+  return dataArray
 };
 
 ipcMain.handle('data:sendData', sendData)
