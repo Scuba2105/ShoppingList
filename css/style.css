@@ -104,6 +104,9 @@ h1 {
 .container .select .search-list li, .container .import .search-list li, .container .current .search-list li {
   margin: 8px;
 }
+.container .select .search-list li:hover, .container .import .search-list li:hover, .container .current .search-list li:hover {
+  cursor: pointer;
+}
 .container .select .circle, .container .import .circle, .container .current .circle {
   height: 300px;
   width: 300px;

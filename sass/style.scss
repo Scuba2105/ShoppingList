@@ -114,6 +114,9 @@ h1 {
             li {
                 margin: 8px;
             }
+            li:hover {
+                cursor: pointer;
+            }
         }
 
         .circle {
