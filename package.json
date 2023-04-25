@@ -16,7 +16,7 @@
     "sass": "^1.62.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-browserify": "^0.5.1",
     "gulp-html2pug": "^5.1.1"
   }

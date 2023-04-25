@@ -23,7 +23,7 @@ function createWindow () {
   mainWindow.setMenu(null);
   mainWindow.webContents.on('did-finish-load', () => {
     const version = require('./package.json').version;
-    const windowTitle = `Shopping List Generator ${version}`;
+    const windowTitle = `Shopping List Generator v${version}`;
     mainWindow.setTitle(windowTitle);
   });
   mainWindow.webContents.openDevTools();

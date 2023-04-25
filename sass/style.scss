@@ -34,6 +34,7 @@ $button-width: 324px;
 body {
     background-color: #f1c69e;
     font-family: 'Kalam', 'serif';
+    overflow: hidden;
 }
 
 .layout {
@@ -55,9 +56,10 @@ h1 {
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    transform: translateY(-60px);
     .select, .import, .current {
         height: 600px;
-        width: 500px;
+        width: 420px;
         background-color: #ffffff;
         border-radius: 40px;
         display: flex;
@@ -102,7 +104,7 @@ h1 {
         }
         
         input {
-            width: 400px;
+            width: 350px;
             height: 50px;
             border-radius: 8px;
             font-size: 20px;

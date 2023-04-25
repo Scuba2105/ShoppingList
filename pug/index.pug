@@ -4,18 +4,25 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width,initial-scale=1')
-    link(rel='stylesheet', href='/css/style.css')
-    script(src='../js/script.js', defer)
+    link(rel='stylesheet', href='../css/style.css')
+    script(src='../js/renderer.js', defer)
     title Document
   body
     .layout
       h1 Shopping List App
       .container
         .select
-          h1.select-title Select Item
-          label Search
-          input(type='text', placeholder='Enter shopping item here')
+          .search-back
+            h1.select-title Select Item
+            label Search
+            .search
+              img.search-img(src='../image/search.svg')
+            input(type='text', placeholder='Enter shopping item here')
           .circle
-        .import
+            p.item Blueberries
+            p.freq
+              span.order Order Frequency:
+              |  Weekly
+            .select_button
+              p.add Add to List
         .current
-      .generate
