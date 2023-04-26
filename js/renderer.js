@@ -57,17 +57,16 @@ function updateSearchList() {
     if (searchInput.length > 0) {
         searchList.style.opacity = 1;
     } 
-    const itemNames = availableItems.map((item) => {
-        return item.name;
-    });
     const regex = new RegExp(`${searchInput}`, 'ig');
-    const matchedItems = itemNames.filter((item) => {
-        return regex.test(item);
+    const matchedItems = availableItems.filter((item) => {
+        return item.name.includes(searchInput);
     });
+    const searchListTitle = `<li class="list-titles"><span>Item Name</span><span>Frequency</span></li>`;
     const searchListEntries = matchedItems.map((item) => {
-        return `<li>${item}<li>`;
+        return `<li class="listItem1"><span>${item.name}</span><span>${item.frequency}</span></li>`;
     }).join('');
-    searchList.innerHTML = searchListEntries;
+     
+    searchList.innerHTML = searchListTitle + searchListEntries;
 };
 
 
