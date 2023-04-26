@@ -54,9 +54,13 @@ searchBox.addEventListener('keyup', updateSearchList)
 
 function updateSearchList() {
     const searchInput = this.value;
+    
     if (searchInput.length > 0) {
         searchList.style.opacity = 1;
     } 
+    else {
+        searchList.style.opacity = 0;
+    }
     const regex = new RegExp(`${searchInput}`, 'ig');
     const matchedItems = availableItems.filter((item) => {
         return item.name.includes(searchInput);
