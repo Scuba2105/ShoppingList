@@ -89,7 +89,7 @@ h1 {
   z-index: 5;
 }
 .container .select .search-list, .container .import .search-list, .container .current .search-list {
-  opacity: 0;
+  opacity: 1;
   position: absolute;
   top: 184.5px;
   border: 1px solid black;
@@ -100,9 +100,33 @@ h1 {
   background-color: white;
   height: 290px;
   overflow: hidden;
+  padding: 0px;
 }
 .container .select .search-list li, .container .import .search-list li, .container .current .search-list li {
-  margin: 8px;
+  width: 111%;
+  margin: auto auto;
+  font-size: 16px;
+  transform: translateX(-28px);
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid black;
+}
+.container .select .search-list li span, .container .import .search-list li span, .container .current .search-list li span {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px;
+}
+.container .select .search-list .list-titles, .container .import .search-list .list-titles, .container .current .search-list .list-titles {
+  font-size: 17px;
+  font-weight: bold;
+  background-color: #5050f5;
+  color: white;
+  border: 1px solid black;
+}
+.container .select .search-list .list-title:hover, .container .import .search-list .list-title:hover, .container .current .search-list .list-title:hover {
+  cursor: default;
 }
 .container .select .search-list li:hover, .container .import .search-list li:hover, .container .current .search-list li:hover {
   cursor: pointer;

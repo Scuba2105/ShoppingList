@@ -54,7 +54,6 @@ searchBox.addEventListener('keyup', updateSearchList)
 
 function updateSearchList() {
     const searchInput = this.value;
-    console.log(searchInput.length)
     if (searchInput.length > 0) {
         searchList.style.opacity = 1;
     } 
