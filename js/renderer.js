@@ -16,7 +16,6 @@ async function getData() {
         return item.frequency == 'Weekly';
     });
     shoppingList.push(...weeklyItems);
-    console.log(shoppingList);
 }
 
 getData();
@@ -67,11 +66,43 @@ function updateSearchList() {
     });
     const searchListTitle = `<li class="list-titles"><span>Item Name</span><span>Frequency</span></li>`;
     const searchListEntries = matchedItems.map((item) => {
-        return `<li class="listItem1"><span>${item.name}</span><span>${item.frequency}</span></li>`;
+        return `<li class="listItem"><span>${capitaliseFirstLetter(item.name)}</span><span>${item.frequency}</span></li>`;
     }).join('');
      
     searchList.innerHTML = searchListTitle + searchListEntries;
+
+    let listItem = searchList.querySelectorAll('.listItem');
+
+    listItem.forEach((item) => {
+        item.addEventListener('click', selectListItem);
+    });
 };
 
+// Get the search box element and search icon.
+// const searchBox = document.querySelector('.search-container input');
+// const searchIcon = document.querySelector('.search');
+// const selectedItem = document.querySelector('.item');
+// const addToList = document.querySelector('.select_button');
+// const searchList = document.querySelector('.search-list');
+
+function selectListItem(event) {
+    const listElement = event.target.parentElement;
+    const itemAttributes = listElement.querySelectorAll('span'); 
+    const name = itemAttributes[0].textContent;
+    const frequency = itemAttributes[1].textContent;
+    console.log(name, frequency);
+};
+
+// Capitalise the first letter of each word
+function capitaliseFirstLetter(words) {
+    const wordsArray = words.split(' ');
+    const newWords = wordsArray.map((word) => {
+        const firstLetter = word.slice(0,1).toUpperCase();
+        const remainingLetters = word.slice(1);
+        return firstLetter + remainingLetters;
+    }).join(' ');
+
+    return newWords
+} 
 
 
