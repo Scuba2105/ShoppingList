@@ -24,6 +24,7 @@ getData();
 const searchBox = document.querySelector('.search-container input');
 const searchIcon = document.querySelector('.search');
 const selectedItem = document.querySelector('.item');
+const itemFrequency = document.querySelector('.freq');
 const addToList = document.querySelector('.select_button');
 const searchList = document.querySelector('.search-list');
 
@@ -85,12 +86,16 @@ function updateSearchList() {
 // const addToList = document.querySelector('.select_button');
 // const searchList = document.querySelector('.search-list');
 
+// Get the information from selected item
 function selectListItem(event) {
     const listElement = event.target.parentElement;
     const itemAttributes = listElement.querySelectorAll('span'); 
     const name = itemAttributes[0].textContent;
     const frequency = itemAttributes[1].textContent;
-    console.log(name, frequency);
+
+    // Set the text values in the circle
+    selectedItem.textContent = name;
+    itemFrequency.textContent = frequency;
 };
 
 // Capitalise the first letter of each word
