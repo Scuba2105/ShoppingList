@@ -95,13 +95,6 @@ function updateSearchList() {
     });
 };
 
-// Get the search box element and search icon.
-// const searchBox = document.querySelector('.search-container input');
-// const searchIcon = document.querySelector('.search');
-// const selectedItem = document.querySelector('.item');
-// const addToList = document.querySelector('.select_button');
-// const searchList = document.querySelector('.search-list');
-
 // Get the information from selected item
 function selectListItem(event) {
     const listElement = event.target.parentElement;
@@ -121,12 +114,13 @@ function selectListItem(event) {
 // Highlight list items when hovered
 function highlightBackground() {
     this.style.backgroundColor = '#9ea2f1';
-    this.style.color = 'rgb(2, 7, 54)';
+    this.style.fontWeight = 'bold';
 };
 
 // Function remove highlight
 function removeHighlight() {
     this.style.backgroundColor = 'white';
+    this.style.fontWeight = 'normal';
 };
 
 // Capitalise the first letter of each word
