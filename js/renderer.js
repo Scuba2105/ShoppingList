@@ -8,7 +8,7 @@ const shoppingList = [];
 async function getData() {
     
     // Retreive the available items data and store in array
-    const data = await window.electronAPI.sendData();
+    const data = await window.electronAPI.sendWeeklyData();
     availableItems.push(...data);
 
     // Filter the available items data for weekly purchased items and add to the shopping list 
@@ -38,11 +38,24 @@ function hoverPointer() {
 // Add current selected item to the current shopping list. 
 addToList.addEventListener('click', () => {
     const selection = selectedItem.textContent;
+    const selectionLowerCase = selection.toLowerCase();
     const itemNames = shoppingList.map((item) => {
         return item.name;
     })
     if (!itemNames.includes(selection)) {
-        shoppingList.push(selection);
+        const newItemEntry = availableItems.find((item) => {
+            return item.name == selectionLowerCase;
+        });
+        // Add the new item details to the shopping list 
+        shoppingList.push(newItemEntry);
+
+        // Set the empty text values in the circle
+        selectedItem.textContent = '----';
+        itemFrequency.textContent = '----';
+        
+        // Alert the user that item has been added to the shooping list
+        alert(`${selection} has been added to the shopping list`);
+
     }
     else {
         alert('This item has already been purchased');
@@ -56,10 +69,10 @@ function updateSearchList() {
     const searchInput = this.value;
     
     if (searchInput.length > 0) {
-        searchList.style.opacity = 1;
+        searchList.style.display = 'block';
     } 
     else {
-        searchList.style.opacity = 0;
+        searchList.style.display = 'none';
     }
     const regex = new RegExp(`${searchInput}`, 'ig');
     const matchedItems = availableItems.filter((item) => {
@@ -96,6 +109,10 @@ function selectListItem(event) {
     // Set the text values in the circle
     selectedItem.textContent = name;
     itemFrequency.textContent = frequency;
+
+    // Remove the search list and search text when item selected
+    searchList.style.display = 'none';
+    searchBox.value = '';
 };
 
 // Capitalise the first letter of each word

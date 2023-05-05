@@ -1,5 +1,5 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electronAPI', {
-  sendData: () => ipcRenderer.invoke('data:sendData')
+  sendWeeklyData: () => ipcRenderer.invoke('data:sendWeeklyData')
 });

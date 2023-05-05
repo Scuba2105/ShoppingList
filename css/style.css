@@ -89,7 +89,7 @@ h1 {
   z-index: 5;
 }
 .container .select .search-list, .container .import .search-list, .container .current .search-list {
-  opacity: 0;
+  display: none;
   position: absolute;
   top: 184.5px;
   border: 1px solid black;
