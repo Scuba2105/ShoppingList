@@ -16,6 +16,7 @@ async function getData() {
         return item.frequency == 'Weekly';
     });
     shoppingList.push(...weeklyItems);
+  
 }
 
 getData();
@@ -144,5 +145,22 @@ function closeSearchList(event) {
         searchBox.value = '';
     }
 };
+
+const categories = ['Fresh Produce','Dairy','Grains & Cereals','Baking','Frozen','Oils & Seasoning','Snacks, Spreads & Drink',
+'Cleaning & Household'];
+
+const viewEditButton = document.querySelector('.review-button1');
+const modalForm = document.querySelector('.modal-form');
+
+viewEditButton.addEventListener('click', showModal) 
+
+function showModal() {
+    modalForm.style.display = 'block';
+}
+
+
+
+
+
 
 

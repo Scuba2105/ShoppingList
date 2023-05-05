@@ -77,6 +77,18 @@ h1 {
     color: $dark-theme-color;
 }
 
+.modal-form {
+    height: 600px;
+    width: 1050px;
+    border: 1px solid black;
+    background-color: white;
+    position: absolute;
+    top: 200px;
+    left: 75px;
+    z-index: 100;
+    display: none;
+}
+
 .container {
     display: flex;
     justify-content: space-around;
