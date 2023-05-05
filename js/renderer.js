@@ -42,7 +42,7 @@ addToList.addEventListener('click', () => {
     const itemNames = shoppingList.map((item) => {
         return item.name;
     })
-    if (!itemNames.includes(selection)) {
+    if (!itemNames.includes(selectionLowerCase)) {
         const newItemEntry = availableItems.find((item) => {
             return item.name == selectionLowerCase;
         });
@@ -58,7 +58,7 @@ addToList.addEventListener('click', () => {
 
     }
     else {
-        alert('This item has already been purchased');
+        alert('This item has already been added to the list');
     }
 });
 
@@ -88,7 +88,10 @@ function updateSearchList() {
     let listItem = searchList.querySelectorAll('.listItem');
 
     listItem.forEach((item) => {
+        // Listen for click events and change background on hover over list items
         item.addEventListener('click', selectListItem);
+        item.addEventListener('mouseover', highlightBackground);
+        item.addEventListener('mouseout', removeHighlight);
     });
 };
 
@@ -115,6 +118,17 @@ function selectListItem(event) {
     searchBox.value = '';
 };
 
+// Highlight list items when hovered
+function highlightBackground() {
+    this.style.backgroundColor = '#9ea2f1';
+    this.style.color = 'rgb(2, 7, 54)';
+};
+
+// Function remove highlight
+function removeHighlight() {
+    this.style.backgroundColor = 'white';
+};
+
 // Capitalise the first letter of each word
 function capitaliseFirstLetter(words) {
     const wordsArray = words.split(' ');
@@ -126,5 +140,15 @@ function capitaliseFirstLetter(words) {
 
     return newWords
 } 
+
+// Close search list if clicked outside
+window.addEventListener('click', closeSearchList);
+
+function closeSearchList(event) {
+    if (event.target.parentElement.tagName != 'LI' && searchList.style.display == 'block') {
+        searchList.style.display = 'none';
+        searchBox.value = '';
+    }
+};
 
 

@@ -121,7 +121,7 @@ h1 {
 .container .select .search-list .list-titles, .container .import .search-list .list-titles, .container .current .search-list .list-titles {
   font-size: 17px;
   font-weight: bold;
-  background-color: #5050f5;
+  background-color: rgb(2, 7, 54);
   color: white;
   border: 1px solid black;
 }
