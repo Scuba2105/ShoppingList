@@ -16,7 +16,6 @@ async function getData() {
         return item.frequency == 'Weekly';
     });
     shoppingList.push(...weeklyItems);
-  
 }
 
 getData();
