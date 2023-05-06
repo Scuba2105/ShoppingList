@@ -12,18 +12,18 @@ $title-height: 75px;
 $form-height: 645px;
 $category-height: calc(($form-height - $title-height)/8);
 
-@mixin review-button($button-color) {
+@mixin review-button($button-color, $text-color, $border-color) {
     height: 100px;
     width: 300px;
-    border: 3px solid $dark-theme-color;
+    border: 3px solid $border-color;
     border-radius: 15px;
     font-size: 30px;
     font-weight: bold;
-    background-color: transparent;
+    background-color: $button-color;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $dark-theme-color;
+    color: $text-color;
 }
 
 @mixin card-display() {
@@ -55,6 +55,14 @@ $category-height: calc(($form-height - $title-height)/8);
             font-size: 35px;
             color: white;
         }
+    }
+}
+
+@mixin categories($optionColor) {
+    background-color: $optionColor;
+    h3 {
+        opacity: 1;
+        color: black;
     }
 }
 
@@ -92,6 +100,13 @@ h1 {
     display: none;
     grid-template-columns: 300px 1fr;
     grid-template-rows: $title-height 1fr;
+    .cross-icon {
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        left: 1010px;
+        top: 20px;
+    }
     .modal-title {
         grid-row: 1 / 2;
         grid-column: 1 / -1;
@@ -113,12 +128,29 @@ h1 {
         justify-content: center;
         align-items: center;
         border-right: 1px solid black;
-        .active {
-            background-color: rgb(248, 171, 29);
-            h3 {
-                opacity: 1;
-                color: black;
-            }
+        .fresh-produce {
+            @include categories(rgb(44, 240, 125));
+        }
+        .dairy {
+            @include categories(rgb(249, 249, 250));
+        }
+        .grains-and-cereals {
+            @include categories(rgb(248, 173, 75));
+        }
+        .baking {
+            @include categories(rgb(228, 243, 89));
+        }
+        .frozen {
+            @include categories(rgb(74, 238, 250));
+        }
+        .oils-and-seasoning {
+            @include categories(rgb(253, 109, 92));
+        }
+        .snacks-spreads-and-drink {
+            @include categories(rgb(248, 93, 225));
+        }
+        .cleaning-and-household {
+            @include categories(rgb(60, 44, 240));
         }
         div {
             width: 100%;
@@ -154,14 +186,14 @@ h1 {
             align-items: center;
             span {
                 margin-right: 8px;
-                font-size: 18px;
+                font-size: 16px;
             }
             button {
                 margin-left: 8px;
                 background-color: rgb(241, 61, 61);
                 color: white;
                 border: 1px solid rgb(241, 61, 61);
-                font-size: 18px;
+                font-size: 16px;
                 padding: 2px;
                 border-radius: 5px;
             }
@@ -311,17 +343,25 @@ h1 {
             justify-content: space-around;
             align-items: center;
             .review-button1 {
-                @include review-button(red);
-                transform: translateY(50px)
+                @include review-button(white, $dark-theme-color, $dark-theme-color);
             }
             .review-button2 {
-                @include review-button(green);
-                transform: translateY(-50px)
+                @include review-button(white, $dark-theme-color, $dark-theme-color);
+            }
+            .review-button3 {
+                @include review-button($dark-theme-color, white, $dark-theme-color);
             }
             .review-button:hover {
                 background: $button-color;
                 color: $dark-theme-color;
                 cursor: pointer;
+            }
+            .review-button3:hover {
+                background: rgb(29, 123, 87);
+                border: 1px solid rgb(29, 123, 87); 
+                color: white;
+                cursor: pointer;
+                scale: 1.1;
             }
         }
     }

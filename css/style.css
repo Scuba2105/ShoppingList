@@ -33,6 +33,13 @@ h1 {
   grid-template-columns: 300px 1fr;
   grid-template-rows: 75px 1fr;
 }
+.modal-form .cross-icon {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  left: 1010px;
+  top: 20px;
+}
 .modal-form .modal-title {
   grid-row: 1/2;
   grid-column: 1/-1;
@@ -55,10 +62,59 @@ h1 {
   align-items: center;
   border-right: 1px solid black;
 }
-.modal-form .categories .active {
-  background-color: rgb(248, 171, 29);
+.modal-form .categories .fresh-produce {
+  background-color: rgb(44, 240, 125);
 }
-.modal-form .categories .active h3 {
+.modal-form .categories .fresh-produce h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .dairy {
+  background-color: rgb(249, 249, 250);
+}
+.modal-form .categories .dairy h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .grains-and-cereals {
+  background-color: rgb(248, 173, 75);
+}
+.modal-form .categories .grains-and-cereals h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .baking {
+  background-color: rgb(228, 243, 89);
+}
+.modal-form .categories .baking h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .frozen {
+  background-color: rgb(74, 238, 250);
+}
+.modal-form .categories .frozen h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .oils-and-seasoning {
+  background-color: rgb(253, 109, 92);
+}
+.modal-form .categories .oils-and-seasoning h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .snacks-spreads-and-drink {
+  background-color: rgb(248, 93, 225);
+}
+.modal-form .categories .snacks-spreads-and-drink h3 {
+  opacity: 1;
+  color: black;
+}
+.modal-form .categories .cleaning-and-household {
+  background-color: rgb(60, 44, 240);
+}
+.modal-form .categories .cleaning-and-household h3 {
   opacity: 1;
   color: black;
 }
@@ -95,14 +151,14 @@ h1 {
 }
 .modal-form .item-summary .item-view span {
   margin-right: 8px;
-  font-size: 18px;
+  font-size: 16px;
 }
 .modal-form .item-summary .item-view button {
   margin-left: 8px;
   background-color: rgb(241, 61, 61);
   color: white;
   border: 1px solid rgb(241, 61, 61);
-  font-size: 18px;
+  font-size: 16px;
   padding: 2px;
   border-radius: 5px;
 }
@@ -301,12 +357,11 @@ h1 {
   border-radius: 15px;
   font-size: 30px;
   font-weight: bold;
-  background-color: transparent;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   color: rgb(2, 7, 54);
-  transform: translateY(50px);
 }
 .container .current .button-container .review-button2 {
   height: 100px;
@@ -315,15 +370,34 @@ h1 {
   border-radius: 15px;
   font-size: 30px;
   font-weight: bold;
-  background-color: transparent;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   color: rgb(2, 7, 54);
-  transform: translateY(-50px);
+}
+.container .current .button-container .review-button3 {
+  height: 100px;
+  width: 300px;
+  border: 3px solid rgb(2, 7, 54);
+  border-radius: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: rgb(2, 7, 54);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 .container .current .button-container .review-button:hover {
   background: rgb(248, 171, 29);
   color: rgb(2, 7, 54);
   cursor: pointer;
+}
+.container .current .button-container .review-button3:hover {
+  background: rgb(29, 123, 87);
+  border: 1px solid rgb(29, 123, 87);
+  color: white;
+  cursor: pointer;
+  scale: 1.1;
 }

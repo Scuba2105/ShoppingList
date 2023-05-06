@@ -2,7 +2,7 @@
 let availableItems = [];
 
 // Initialise shopping list to add items.
-const shoppingList = [];
+let shoppingList = [];
 
 // Request the available items data from the main process
 async function getData() {
@@ -153,7 +153,16 @@ const categories = ['Fresh Produce','Dairy','Grains & Cereals','Baking','Frozen'
 const viewEditButton = document.querySelector('.review-button1');
 const modalForm = document.querySelector('.modal-form');
 const itemDisplay = document.querySelector('.item-summary');
+const crossIcon = document.querySelector('.cross-icon');
 
+// Close the modal when cross is clicked.
+crossIcon.addEventListener('click', closeModal);
+
+function closeModal() {
+    modalForm.style.display = 'none';
+}
+
+// Open and load the modal when view/edit button clicked.
 viewEditButton.addEventListener('click', loadModal) 
 
 function loadModal() {
@@ -178,22 +187,31 @@ formOptions.forEach((option) => {
     option.addEventListener('click', updateModalForm);
 })
 
+// Format name as html attribute
+function formatAsAttribute(category) {
+    const categoryNoSpaces = category.toLowerCase().replace(/\s/ig, '-');
+    return categoryNoSpaces.replace('&','and').replace(',','');
+}
+
 function updateModalForm(event) {
     formOptions.forEach((option) => {
         //Reset all options to default formatting
-        if (option.classList.contains('active')) {
-            option.classList.remove('active');
+        const category = option.querySelector('h3').textContent;
+        const categoryAttribute = formatAsAttribute(category);
+        if (option.classList.contains(`${categoryAttribute}`)) {
+            option.classList.remove(`${categoryAttribute}`);
         }
     });
     
-    // Add the active class to the selected option   
-    const selectedOption = event.target.parentElement;
-    selectedOption.classList.add('active');
+    // Add the appropriate class to the selected option   
+    const selectedOption = event.target.tagName == 'DIV' ? event.target : event.target.parentElement;
+    const categoryTitle = selectedOption.querySelector('h3').textContent;
+    const selectedCategoryAttribute = formatAsAttribute(categoryTitle);
+    selectedOption.classList.add(`${selectedCategoryAttribute}`);
 
     // Update to display the items belonging to the selected category
-    const selectedCategory = selectedOption.querySelector('h3').textContent;
     const currentCategoryItems = shoppingList.filter((items) => {
-        return items.category == selectedCategory;
+        return items.category == categoryTitle;
     });
 
     let itemSummaryHTML;
@@ -219,11 +237,17 @@ function updateModalForm(event) {
 };
 
 function removeItem(event) {
-    const removedItem = event.target.parentElement.querySelector('span').textContent;
+    const removedItem = event.target.parentElement.querySelector('span').textContent.toLowerCase();
     const removedElement = event.target.parentElement;
     removedElement.remove();
-    // need to permanently remove from shopping list array.
-}
+
+    // Remove from the shopping list
+    const removedItemIndex = shoppingList.findIndex((item) => {
+        return item.name == removedItem;
+    });
+    shoppingList.splice(removedItemIndex, 1);
+    console.log(shoppingList.length);
+};
 
 
 
