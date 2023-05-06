@@ -145,18 +145,50 @@ function closeSearchList(event) {
     }
 };
 
+
+// JS for modal form for shopping list
 const categories = ['Fresh Produce','Dairy','Grains & Cereals','Baking','Frozen','Oils & Seasoning','Snacks, Spreads & Drink',
 'Cleaning & Household'];
 
 const viewEditButton = document.querySelector('.review-button1');
 const modalForm = document.querySelector('.modal-form');
+const itemDisplay = document.querySelector('.item-summary');
 
-viewEditButton.addEventListener('click', showModal) 
+viewEditButton.addEventListener('click', loadModal) 
 
-function showModal() {
+function loadModal() {
+    const freshProduceItems = shoppingList.filter((item) => {
+        return item.category == 'Fresh Produce';
+    });
+    const itemSummaryHTML = freshProduceItems.map((item) => {
+        return `<div class="item-view"><span>${item.name}</span><button>Remove</button></div>`
+    }).join('');
+    itemDisplay.innerHTML = itemSummaryHTML;
     modalForm.style.display = 'grid';
 }
 
+// Highlight categories when clicked
+const formOptions = document.querySelectorAll('.categories div');
+
+formOptions.forEach((option) => {
+    option.addEventListener('click', updateModalForm);
+})
+
+function updateModalForm(event) {
+    formOptions.forEach((option) => {
+        //Reset all options to default formatting
+        if (option.classList.contains('active')) {
+            option.classList.remove('active');
+        }
+    });
+    const selectedOption = event.target.parentElement;
+    selectedOption.classList.add('active');
+    const selectedCategory = selectedOption.querySelector('h3').textContent;
+    const currentCategoryItems = shoppingList.filter((items) => {
+        return items.category == selectedCategory;
+    });
+    console.log(currentCategoryItems);
+}
 
 
 
