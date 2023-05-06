@@ -154,7 +154,7 @@ const modalForm = document.querySelector('.modal-form');
 viewEditButton.addEventListener('click', showModal) 
 
 function showModal() {
-    modalForm.style.display = 'block';
+    modalForm.style.display = 'grid';
 }
 
 
