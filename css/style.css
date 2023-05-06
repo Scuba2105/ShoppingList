@@ -82,7 +82,11 @@ h1 {
   grid-column: 2/-1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: repeat(1fr, 8);
+  grid-template-rows: repeat(71.25px, 8);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.modal-form .item-summary .no-item-message {
+  font-size: 30px;
 }
 .modal-form .item-summary .item-view {
   display: flex;
@@ -91,7 +95,7 @@ h1 {
 }
 .modal-form .item-summary .item-view span {
   margin-right: 8px;
-  font-size: 20px;
+  font-size: 18px;
 }
 .modal-form .item-summary .item-view button {
   margin-left: 8px;

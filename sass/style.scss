@@ -142,14 +142,19 @@ h1 {
         grid-column: 2 / -1;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: repeat(1fr, 8);
+        grid-template-rows: repeat($category-height, 8);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        .no-item-message {
+            font-size: 30px;
+            
+        }
         .item-view {
             display: flex;
             justify-content: center;
             align-items: center;
             span {
                 margin-right: 8px;
-                font-size: 20px;
+                font-size: 18px;
             }
             button {
                 margin-left: 8px;

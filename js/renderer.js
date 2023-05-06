@@ -161,10 +161,14 @@ function loadModal() {
         return item.category == 'Fresh Produce';
     });
     const itemSummaryHTML = freshProduceItems.map((item) => {
-        return `<div class="item-view"><span>${item.name}</span><button>Remove</button></div>`
-    }).join('');
+        return `<div class="item-view"><span>${item.name}</span><button class="remove">Remove</button></div>`
+    }).sort().join('');
     itemDisplay.innerHTML = itemSummaryHTML;
     modalForm.style.display = 'grid';
+    const removeButtons = document.querySelectorAll('.remove');
+    removeButtons.forEach((button) => {
+        button.addEventListener('click', removeItem);
+    });
 }
 
 // Highlight categories when clicked
@@ -181,13 +185,44 @@ function updateModalForm(event) {
             option.classList.remove('active');
         }
     });
+    
+    // Add the active class to the selected option   
     const selectedOption = event.target.parentElement;
     selectedOption.classList.add('active');
+
+    // Update to display the items belonging to the selected category
     const selectedCategory = selectedOption.querySelector('h3').textContent;
     const currentCategoryItems = shoppingList.filter((items) => {
         return items.category == selectedCategory;
     });
-    console.log(currentCategoryItems);
+
+    let itemSummaryHTML;
+
+    if (currentCategoryItems.length > 0) {
+        itemSummaryHTML = currentCategoryItems.map((item) => {
+            return `<div class="item-view"><span>${item.name}</span><button class="remove">Remove</button></div>`
+        }).sort().join('');
+        itemDisplay.style.display = 'grid';
+    }
+    else {
+        itemDisplay.style.display = 'flex';
+        itemDisplay.style.justifyContent = 'center';
+        itemDisplay.style.alignItems = 'center';
+        itemSummaryHTML = '<div class="no-item-message">No Items Selected From This Category</div>';
+    }
+    
+    itemDisplay.innerHTML = itemSummaryHTML;
+    const removeButtons = document.querySelectorAll('.remove');
+    removeButtons.forEach((button) => {
+        button.addEventListener('click', removeItem);
+    });
+};
+
+function removeItem(event) {
+    const removedItem = event.target.parentElement.querySelector('span').textContent;
+    const removedElement = event.target.parentElement;
+    removedElement.remove();
+    // need to permanently remove from shopping list array.
 }
 
 
