@@ -14,10 +14,12 @@ ipcMain.handle('data:sendWeeklyData', sendWeeklyData);
 
 ipcMain.on('data:saveData', (event, list) => {
   const listArray = JSON.parse(list);
+  // Need to use when sending data
+  const testDate = DateTime.fromISO("2023-05-07");
+
   // Monday is 1 through to Sunday which is 7. 
   const currentDate = DateTime.now();
-  const testDate = DateTime.fromISO("2023-05-07");
-  const dayOfWeek = testDate.weekday;
+  const dayOfWeek = currentDate.weekday;
   let daysElapsed;
   if (dayOfWeek == 1) {
     daysElapsed = 6;
@@ -26,9 +28,12 @@ ipcMain.on('data:saveData', (event, list) => {
     daysElapsed = dayOfWeek - 2;
   }
   const daysToEnd = 6 - daysElapsed;
-  const dateStart = daysElapsed == 0 ? currentDate : currentDate.minus({ days: daysElapsed});
-  const dateEnd = currentDate.plus({days: daysToEnd});
-  console.log(dateStart.toISO(), dateEnd.toISO());
+  const dateStart = daysElapsed == 0 ? currentDate : currentDate.minus({ days: daysElapsed}).toISO().split('T')[0];
+  const dateEnd = currentDate.plus({days: daysToEnd}).toISO().split('T')[0];
+  // Need to use for sending data on load
+  //const currentInterval = Interval.fromDateTimes(dateStart, dateEnd);
+  const storedData = {startDate: dateStart, endDate: dateEnd, shoppingListData: listArray};
+  console.log(JSON.stringify(storedData));
 })
 
 function createWindow () {
