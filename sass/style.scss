@@ -6,7 +6,7 @@
 // Define variables for color scheme
 $dark-theme-color: rgb(2, 7, 54);
 $medium-theme-color: #5050f5;
-$light-theme-color: #9ea2f1;
+$light-theme-color: #d5d7f8;
 $button-color: rgb(248, 171, 29);
 $title-height: 75px;
 $form-height: 645px;
@@ -100,6 +100,7 @@ h1 {
     display: none;
     grid-template-columns: 300px 1fr;
     grid-template-rows: $title-height 1fr;
+    box-shadow: 10px 10px 23px 7px rgba(0,0,0,0.88);
     .cross-icon {
         height: 20px;
         width: 20px;
@@ -114,6 +115,8 @@ h1 {
         justify-content: center;
         align-items: center;
         border-bottom: 1px solid black;
+        color: white;
+        background-color: #383839;
         h2{
             font-size: 35px;
             font-weight: bold;
@@ -150,7 +153,7 @@ h1 {
             @include categories(rgb(248, 93, 225));
         }
         .cleaning-and-household {
-            @include categories(rgb(60, 44, 240));
+            @include categories(rgb(116, 135, 246));
         }
         div {
             width: 100%;
@@ -176,6 +179,7 @@ h1 {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: repeat($category-height, 8);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: rgb(196, 246, 217);
         .no-item-message {
             font-size: 30px;
             
@@ -349,7 +353,7 @@ h1 {
                 @include review-button(white, $dark-theme-color, $dark-theme-color);
             }
             .review-button3 {
-                @include review-button($dark-theme-color, white, $dark-theme-color);
+                @include review-button(rgb(29, 123, 87), white, rgb(29, 123, 87));
             }
             .review-button:hover {
                 background: $button-color;
@@ -357,9 +361,6 @@ h1 {
                 cursor: pointer;
             }
             .review-button3:hover {
-                background: rgb(29, 123, 87);
-                border: 1px solid rgb(29, 123, 87); 
-                color: white;
                 cursor: pointer;
                 scale: 1.1;
             }

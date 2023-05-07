@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap");
 body {
-  background-color: #9ea2f1;
+  background-color: #d5d7f8;
   font-family: "Kalam", "serif";
   overflow: hidden;
 }
@@ -32,6 +32,7 @@ h1 {
   display: none;
   grid-template-columns: 300px 1fr;
   grid-template-rows: 75px 1fr;
+  box-shadow: 10px 10px 23px 7px rgba(0, 0, 0, 0.88);
 }
 .modal-form .cross-icon {
   height: 20px;
@@ -47,6 +48,8 @@ h1 {
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid black;
+  color: white;
+  background-color: #383839;
 }
 .modal-form .modal-title h2 {
   font-size: 35px;
@@ -112,7 +115,7 @@ h1 {
   color: black;
 }
 .modal-form .categories .cleaning-and-household {
-  background-color: rgb(60, 44, 240);
+  background-color: rgb(116, 135, 246);
 }
 .modal-form .categories .cleaning-and-household h3 {
   opacity: 1;
@@ -140,6 +143,7 @@ h1 {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat(71.25px, 8);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(196, 246, 217);
 }
 .modal-form .item-summary .no-item-message {
   font-size: 30px;
@@ -379,11 +383,11 @@ h1 {
 .container .current .button-container .review-button3 {
   height: 100px;
   width: 300px;
-  border: 3px solid rgb(2, 7, 54);
+  border: 3px solid rgb(29, 123, 87);
   border-radius: 15px;
   font-size: 30px;
   font-weight: bold;
-  background-color: rgb(2, 7, 54);
+  background-color: rgb(29, 123, 87);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -395,9 +399,6 @@ h1 {
   cursor: pointer;
 }
 .container .current .button-container .review-button3:hover {
-  background: rgb(29, 123, 87);
-  border: 1px solid rgb(29, 123, 87);
-  color: white;
   cursor: pointer;
   scale: 1.1;
 }

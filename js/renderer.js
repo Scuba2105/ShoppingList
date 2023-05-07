@@ -150,6 +150,10 @@ function closeSearchList(event) {
 const categories = ['Fresh Produce','Dairy','Grains & Cereals','Baking','Frozen','Oils & Seasoning','Snacks, Spreads & Drink',
 'Cleaning & Household'];
 
+const categoryColors = {'Fresh Produce': 'rgb(196, 246, 217)','Dairy': 'rgb(249, 249, 250)','Grains & Cereals': 'rgb(247, 226, 198)',
+'Baking': 'rgb(238, 243, 197)','Frozen': 'rgb(196, 242, 245)','Oils & Seasoning': 'rgb(250, 215, 211)',
+'Snacks, Spreads & Drink': 'rgb(248, 207, 242','Cleaning & Household': 'rgb(206, 212, 248)'};
+
 const viewEditButton = document.querySelector('.review-button1');
 const modalForm = document.querySelector('.modal-form');
 const itemDisplay = document.querySelector('.item-summary');
@@ -221,11 +225,13 @@ function updateModalForm(event) {
             return `<div class="item-view"><span>${item.name}</span><button class="remove">Remove</button></div>`
         }).sort().join('');
         itemDisplay.style.display = 'grid';
+        itemDisplay.style.backgroundColor = categoryColors[categoryTitle];
     }
     else {
         itemDisplay.style.display = 'flex';
         itemDisplay.style.justifyContent = 'center';
         itemDisplay.style.alignItems = 'center';
+        itemDisplay.style.backgroundColor = categoryColors[categoryTitle];
         itemSummaryHTML = '<div class="no-item-message">No Items Selected From This Category</div>';
     }
     
