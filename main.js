@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const fs = require('fs');
+const { DateTime } = require("luxon");
 
 // Define the async function for sending the data to the renderer process.
 async function sendWeeklyData() {
@@ -13,7 +14,21 @@ ipcMain.handle('data:sendWeeklyData', sendWeeklyData);
 
 ipcMain.on('data:saveData', (event, list) => {
   const listArray = JSON.parse(list);
-  console.log(listArray.length);
+  // Monday is 1 through to Sunday which is 7. 
+  const currentDate = DateTime.now();
+  const testDate = DateTime.fromISO("2023-05-07");
+  const dayOfWeek = testDate.weekday;
+  let daysElapsed;
+  if (dayOfWeek == 1) {
+    daysElapsed = 6;
+  }
+  else {
+    daysElapsed = dayOfWeek - 2;
+  }
+  const daysToEnd = 6 - daysElapsed;
+  const dateStart = daysElapsed == 0 ? currentDate : currentDate.minus({ days: daysElapsed});
+  const dateEnd = currentDate.plus({days: daysToEnd});
+  console.log(dateStart.toISO(), dateEnd.toISO());
 })
 
 function createWindow () {
