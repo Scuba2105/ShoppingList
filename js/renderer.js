@@ -256,6 +256,15 @@ function removeItem(event) {
 };
 
 
+// Store the current shopping list data when save data is pressed
+const saveButton = document.querySelector('.review-button2');
+
+saveButton.addEventListener('click', saveShoppingData) 
+
+async function saveShoppingData() {
+    const data = await window.electronAPI.saveData(JSON.stringify(shoppingList));
+}
+
 
 
 

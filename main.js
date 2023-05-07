@@ -9,7 +9,12 @@ async function sendWeeklyData() {
   return dataArray
 };
 
-ipcMain.handle('data:sendWeeklyData', sendWeeklyData)
+ipcMain.handle('data:sendWeeklyData', sendWeeklyData);
+
+ipcMain.on('data:saveData', (event, list) => {
+  const listArray = JSON.parse(list);
+  console.log(listArray.length);
+})
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
