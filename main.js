@@ -14,9 +14,7 @@ ipcMain.handle('data:sendWeeklyData', sendWeeklyData);
 
 ipcMain.on('data:saveData', (event, list) => {
   const listArray = JSON.parse(list);
-  // Need to use when sending data
-  const testDate = DateTime.fromISO("2023-05-07");
-
+  
   // Monday is 1 through to Sunday which is 7. 
   const currentDate = DateTime.now();
   const dayOfWeek = currentDate.weekday;
@@ -28,13 +26,12 @@ ipcMain.on('data:saveData', (event, list) => {
     daysElapsed = dayOfWeek - 2;
   }
   const daysToEnd = 6 - daysElapsed;
-  const dateStart = daysElapsed == 0 ? currentDate : currentDate.minus({ days: daysElapsed}).toISO().split('T')[0];
-  const dateEnd = currentDate.plus({days: daysToEnd}).toISO().split('T')[0];
-  // Need to use for sending data on load
-  //const currentInterval = Interval.fromDateTimes(dateStart, dateEnd);
-  const storedData = {startDate: dateStart, endDate: dateEnd, shoppingListData: listArray};
-  console.log(JSON.stringify(storedData));
-})
+  const dateEnd = currentDate.plus({days: daysToEnd}).ts;
+  const storedDataObject = {endTimeStamp: dateEnd, shoppingListData: listArray};
+  const storedDataString = JSON.stringify(storedDataObject, null, 2);
+  fs.writeFileSync(path.join(__dirname, 'data', 'current_data.json'), storedDataString);
+  win.webContents.send('save-data-success', 'Data successfully saved!');
+});
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
@@ -42,6 +39,7 @@ function createWindow () {
     height: 1000,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true,
       contextIsolated: false
     }
   })

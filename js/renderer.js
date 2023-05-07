@@ -1,3 +1,6 @@
+// Require the ipcRenderer class from electron
+const { ipcRenderer } = require('electron');
+
 // Initialise available shopping items.
 let availableItems = [];
 
@@ -19,6 +22,11 @@ async function getData() {
 }
 
 getData();
+
+// Listens for save event when the data has been saved to file.
+ipcRenderer.on('save-data-success', function (evt, message) {
+    alert(message); 
+});
 
 // Get the search box element and search icon.
 const searchBox = document.querySelector('.search-container input');
