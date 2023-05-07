@@ -3,6 +3,9 @@ const path = require('path');
 const fs = require('fs');
 const { DateTime } = require("luxon");
 
+//define the main window
+let win;
+
 // Define the async function for sending the data to the renderer process.
 async function sendWeeklyData() {
   const data = fs.readFileSync(path.join(__dirname, 'data', 'shopping_items.json'))
@@ -43,6 +46,7 @@ function createWindow () {
       contextIsolated: false
     }
   })
+  win = mainWindow;
   mainWindow.setMenu(null);
   mainWindow.webContents.on('did-finish-load', () => {
     const version = require('./package.json').version;
