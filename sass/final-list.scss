@@ -1,0 +1,16 @@
+body {
+    width: 29.7cm;
+    height: 19.5cm; 
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.layout {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: repeat(1fr, 8);
+}

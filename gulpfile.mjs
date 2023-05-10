@@ -14,26 +14,12 @@ export function buildStyles() {
 };
 
 export function buildPug() {
-    gulp.src('./html/index.html')
+    gulp.src('./html/final-list.html')
         .pipe(html2pug())
         .pipe(gulp.dest('./pug'));
 };
 
-gulp.task('browserify', () => {
-    gulp.src ('./js/renderer.js')
-        .pipe(browserify({
-      debug: false,
-      ignoreMissing: true,
-      builtins: false,
-      commondir: false,
-      detectGlobals: false,
-      bare: true
-    }))
-        .pipe(gulp.dest('./build'));
-});
-
-
 export function watchTask() {
     gulp.watch('./sass/*.scss', buildStyles);
-    gulp.watch('./html/index.html', buildPug);
+    gulp.watch('./html/final-list.html', buildPug);
 };
