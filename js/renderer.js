@@ -1,7 +1,3 @@
-window.addEventListener('click', (event) => {
-    console.log(event.target);
-});
-
 // Initialise available shopping items.
 let availableItems = [];
 
