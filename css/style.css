@@ -294,7 +294,7 @@ h1 {
   transform: translateY(-60px);
 }
 .container .select .circle .item {
-  font-size: 28px;
+  font-size: 22px;
   font-weight: bold;
 }
 .container .select .circle .freq {
@@ -306,7 +306,7 @@ h1 {
 .container .select .circle .add {
   height: 50px;
   width: 120px;
-  font-size: 20px;
+  font-size: 16px;
   color: white;
   background-color: #5050f5;
   border-radius: 10px;
@@ -401,3 +401,34 @@ h1 {
   cursor: pointer;
   scale: 1.1;
 }
+
+.alert-message {
+  width: 300px;
+  height: 80px;
+  display: none;
+  font-size: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(197, 197, 197);
+  position: absolute;
+  top: calc(400px - 40px);
+  left: calc(550px - 150px);
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.accept-button {
+  height: 20px;
+  width: 40px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accept-button:hover {
+  cursor: pointer;
+}
+

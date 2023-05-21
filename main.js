@@ -53,7 +53,7 @@ function createWindow () {
     const windowTitle = `Shopping List Generator v${version}`;
     mainWindow.setTitle(windowTitle);
   });
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
   mainWindow.loadFile('./html/index.html')
 }
 

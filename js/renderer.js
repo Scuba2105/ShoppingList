@@ -58,11 +58,11 @@ addToList.addEventListener('click', () => {
         itemFrequency.textContent = '----';
         
         // Alert the user that item has been added to the shooping list
-        alert(`${selection} has been added to the shopping list`);
+        alertMessage(`Success! ${selection} has been added to the shopping list`);
 
     }
     else {
-        alert('This item has already been added to the list');
+        alertMessage('Information! This item has already been added to the list');
     }
 });
 
@@ -268,6 +268,20 @@ saveButton.addEventListener('click', saveShoppingData)
 async function saveShoppingData() {
     const data = await window.electronAPI.saveData(JSON.stringify(shoppingList));
 }
+
+// Handle the message alert function
+const messageBox = document.querySelector('.alert-message');
+const messageText = document.querySelector('.message-text');
+const messageButton = document.querySelector('.accept-button');
+
+function alertMessage(message) {
+    messageText.textContent = message;
+    messageBox.style.display = 'flex';
+}
+
+messageButton.addEventListener('click', () => {
+    messageBox.style.display = 'none';
+})
 
 
 
