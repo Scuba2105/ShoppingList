@@ -38,8 +38,8 @@ ipcMain.on('data:saveData', (event, list) => {
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 1000,
+    width: 1100,
+    height: 800,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
@@ -53,7 +53,6 @@ function createWindow () {
     const windowTitle = `Shopping List Generator v${version}`;
     mainWindow.setTitle(windowTitle);
   });
-  mainWindow.webContents.openDevTools();
   mainWindow.loadFile('./html/index.html')
 }
 

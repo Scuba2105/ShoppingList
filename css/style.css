@@ -2,7 +2,6 @@
 body {
   background-color: #d5d7f8;
   font-family: "Kalam", "serif";
-  overflow: hidden;
 }
 
 .layout {
@@ -26,8 +25,8 @@ h1 {
   border: 1px solid black;
   background-color: white;
   position: absolute;
-  top: 200px;
-  left: 75px;
+  top: 20px;
+  left: 10px;
   z-index: 100;
   display: none;
   grid-template-columns: 300px 1fr;
@@ -175,12 +174,12 @@ h1 {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  transform: translateY(-60px);
+  transform: translateY(-30px);
 }
 .container .select {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  height: 600px;
-  width: 420px;
+  height: 480px;
+  width: 400px;
   background-color: #ffffff;
   border-radius: 40px;
   display: flex;
@@ -292,7 +291,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transform: translateY(-30px);
+  transform: translateY(-60px);
 }
 .container .select .circle .item {
   font-size: 28px;
@@ -320,8 +319,8 @@ h1 {
 }
 .container .current {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  height: 600px;
-  width: 420px;
+  height: 480px;
+  width: 400px;
   background-color: #ffffff;
   border-radius: 40px;
   display: flex;
@@ -355,11 +354,11 @@ h1 {
   align-items: center;
 }
 .container .current .button-container .review-button1 {
-  height: 100px;
-  width: 300px;
+  height: 80px;
+  width: 250px;
   border: 3px solid rgb(2, 7, 54);
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   background-color: white;
   display: flex;
@@ -368,11 +367,11 @@ h1 {
   color: rgb(2, 7, 54);
 }
 .container .current .button-container .review-button2 {
-  height: 100px;
-  width: 300px;
+  height: 80px;
+  width: 250px;
   border: 3px solid rgb(2, 7, 54);
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   background-color: white;
   display: flex;
@@ -381,11 +380,11 @@ h1 {
   color: rgb(2, 7, 54);
 }
 .container .current .button-container .review-button3 {
-  height: 100px;
-  width: 300px;
+  height: 80px;
+  width: 250px;
   border: 3px solid rgb(29, 123, 87);
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   background-color: rgb(29, 123, 87);
   display: flex;
