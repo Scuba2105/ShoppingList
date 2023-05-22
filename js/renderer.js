@@ -62,7 +62,10 @@ addToList.addEventListener('click', () => {
 
     }
     else {
-        alertMessage('This item has already been added to the list', 'Information!');
+        // Set the empty text values in the circle
+        selectedItem.textContent = '----';
+        itemFrequency.textContent = '----';
+        alertMessage('This item has already been added to the list', 'Duplicated!', 'rgb(254, 213, 0)');
     }
 });
 
@@ -275,9 +278,18 @@ const messageButton = document.querySelector('.accept-button');
 const alertCross = document.querySelector('.alert-cross');
 const primaryMessage = document.querySelector('.primary-message');
 const additionalMessage = document.querySelector('.additional-message');
+const infoIcon = document.querySelector('.info-icon');
 
-function alertMessage(message, information = 'Success!') {
+function alertMessage(message, information = 'Success!', color = 'rgb(25, 104, 192)') {
     primaryMessage.textContent = information;
+    if (information == 'Success!') {
+        infoIcon.setAttribute('src', '../image/info.png');
+    }
+    else {
+        infoIcon.setAttribute('src', '../image/warning.png');
+    }
+
+    primaryMessage.style.color = color;
     additionalMessage.textContent = message;
     messageBox.style.display = 'grid';
 };

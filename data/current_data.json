@@ -1,5 +1,5 @@
 {
-  "endTimeStamp": 1684725776201,
+  "endTimeStamp": 1684727173372,
   "shoppingListData": [
     {
       "name": "apple",
@@ -162,7 +162,7 @@
       "frequency": "Weekly"
     },
     {
-      "name": "bitter melon",
+      "name": "beetroot",
       "category": "Fresh Produce",
       "frequency": "As Required"
     }
