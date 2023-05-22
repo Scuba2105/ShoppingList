@@ -48,7 +48,8 @@ ipcMain.on('data:generateData',async (event, list) => {
     const endDateArray = getEndDate().toISO().split('T')[0].split('-');
     const endDate = `${endDateArray[2]}/${endDateArray[1]}/${endDateArray[0]}`
     const pugLocals = {date: endDate, data: itemArray};
-    pug = pug = await setupPug({pretty: true}, pugLocals);
+    pug = await setupPug({pretty: true}, pugLocals);
+    pug.on('error', err => console.error('electron-pug error', err));
     createFinalListWindow();   
   } catch (error) {
     console.log(error);
@@ -56,23 +57,29 @@ ipcMain.on('data:generateData',async (event, list) => {
 });
 
 function createFinalListWindow() {
-  const finalListWindow = new BrowserWindow({
-    width: 1133,
-    height: 804,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true,
-      contextIsolated: false
-    }
-  })
-  win2 = finalListWindow;
-  finalListWindow.webContents.on('did-finish-load', () => {
-    const version = require('./package.json').version;
-    const windowTitle = `Shopping List Generator v${version}`;
-    mainWindow.setTitle(windowTitle);
-  });
-  finalListWindow.webContents.openDevTools();
-  finalListWindow.loadURL('./pug/final-list.pug');
+  try {
+    const finalListWindow = new BrowserWindow({
+      width: 1133,
+      height: 804,
+      webPreferences: {
+        preload: path.join(__dirname, 'preload.js'),
+        nodeIntegration: true,
+        contextIsolated: false
+      }
+    })
+    win2 = finalListWindow;
+    win2.setMenu(null);
+    win2.webContents.on('did-finish-load', () => {
+      const version = require('./package.json').version;
+      const windowTitle = `Shopping List Generator v${version}`;
+      win2.setTitle(windowTitle);
+    });
+    win2.webContents.openDevTools();
+    win2.loadFile('./pug/final-list.pug');
+  } catch (error) {
+    console.log(error);
+  }
+   
 }
 
 function createWindow () {
