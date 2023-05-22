@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap");
 body {
-  background-color: #d5d7f8;
+  background-image: url(../image/fruit_and_veg.PNG);
+  background-size: 500px 300px;
   font-family: "Kalam", "serif";
 }
 
