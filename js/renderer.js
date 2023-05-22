@@ -9,14 +9,21 @@ async function getData() {
     
     // Retreive the available items data and store in array
     const data = await window.electronAPI.sendWeeklyData();
-    availableItems.push(...data);
-
-    // Filter the available items data for weekly purchased items and add to the shopping list 
-    const weeklyItems = availableItems.filter((item) => {
+    const allData = (JSON.parse(data).allData);
+    const currentData = (JSON.parse(data).currentData);
+    availableItems.push(...allData);
+    if (currentData != undefined) {
+        shoppingList.push(...currentData);
+    }
+    else {
+        //Filter the available items data for weekly purchased items and add to the shopping list 
+        const weeklyItems = availableItems.filter((item) => {
         return item.frequency == 'Weekly';
-    });
-    shoppingList.push(...weeklyItems);
-}
+        });
+        shoppingList.push(...weeklyItems);
+    }
+    console.log(availableItems, shoppingList);
+};
 
 // Get the data from the main proces
 getData();

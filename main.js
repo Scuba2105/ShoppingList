@@ -12,9 +12,22 @@ let pug;
 
 // Define the async function for sending the data to the renderer process.
 async function sendWeeklyData() {
-  const data = fs.readFileSync(path.join(__dirname, 'data', 'shopping_items.json'))
-  const dataArray = JSON.parse(data);
-  return dataArray
+  const allData = fs.readFileSync(path.join(__dirname, 'data', 'shopping_items.json'))
+  const currentData = fs.readFileSync(path.join(__dirname, 'data', 'current_data.json'))
+  const allDataArray = JSON.parse(allData);
+  const currentDataObject = JSON.parse(currentData);
+  const currentTimeStamp = DateTime.now().ts;
+  const endDateTimeStamp = currentDataObject.endTimeStamp;
+  console.log(currentTimeStamp, endDateTimeStamp);
+  let dataObject;
+  if (currentTimeStamp < endDateTimeStamp) {
+    dataObject = {allData: allDataArray, currentData: currentDataObject.shoppingListData};
+  }
+  else {
+    dataObject = {allData: allDataArray};
+  }
+  console.log(dataObject);
+  return JSON.stringify(dataObject);
 };
 
 async function printList() {

@@ -1,5 +1,5 @@
 {
-  "endTimeStamp": 1684752720406,
+  "endTimeStamp": 2684755308810,
   "shoppingListData": [
     {
       "name": "apple",
@@ -160,6 +160,26 @@
       "name": "bickford's drink",
       "category": "Snacks, Spreads & Drink",
       "frequency": "Weekly"
+    },
+    {
+      "name": "bok choy",
+      "category": "Fresh Produce",
+      "frequency": "As Required"
+    },
+    {
+      "name": "cabbage",
+      "category": "Fresh Produce",
+      "frequency": "As Required"
+    },
+    {
+      "name": "grapefruit",
+      "category": "Fresh Produce",
+      "frequency": "As Required"
+    },
+    {
+      "name": "domestos",
+      "category": "Cleaning & Household",
+      "frequency": "As Required"
     }
   ]
 }
