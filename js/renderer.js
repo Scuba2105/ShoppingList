@@ -273,15 +273,20 @@ async function saveShoppingData() {
 const messageBox = document.querySelector('.alert-message');
 const messageText = document.querySelector('.message-text');
 const messageButton = document.querySelector('.accept-button');
+const alertCross = document.querySelector('.alert-cross');
 
 function alertMessage(message) {
     messageText.textContent = message;
     messageBox.style.display = 'flex';
-}
+};
+
+alertCross.addEventListener('click', () => {
+    messageBox.style.display = 'none';
+});
 
 messageButton.addEventListener('click', () => {
     messageBox.style.display = 'none';
-})
+});
 
 
 

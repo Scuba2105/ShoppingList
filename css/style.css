@@ -403,29 +403,105 @@ h1 {
 }
 
 .alert-message {
-  width: 300px;
-  height: 80px;
-  display: none;
+  width: 320px;
+  height: 170px;
+  box-shadow: 3px 3px 6px 0px rgba(0,0,0,1);
+  background-color: white;
   font-size: 10px;
-  font-family: 'Courier New', Courier, monospace;
-  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 28px 1fr 40px;
   justify-content: center;
   align-items: center;
-  background-color: rgb(197, 197, 197);
   position: absolute;
-  top: calc(400px - 40px);
-  left: calc(550px - 150px);
+  top: calc(400px - 80px);
+  left: calc(550px - 160px);
   border: 1px solid black;
-  padding: 10px;
+}
+
+.message-title-bar {
+  grid-row: 1;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0 8px 0;
+}
+
+.info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.info-icon {
+  height: 18px;
+  width: 18px;
+  margin-right: 10px;
+}
+
+.info-title {
+  font-size: 13px;
+}
+
+.alert-cross {
+  height: 13px;
+  width: 13px;
+  margin-right: 10px;
+}
+
+.alert-cross:hover {
+  cursor: pointer;
+}
+
+.message-body {
+  grid-row: 2;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.primary-message {
+  font-size: 20px;
+  height: 24px;
+  color: rgb(25, 104, 192);
+  margin-left: 10px;
+}
+
+.additional-message {
+  transform: translateY(-20px);
+  margin-left: 10px;
+}
+
+.accept-footer {
+  grid-row: 3;
+  background-color: rgb(225, 226, 226);
+  border-top: 1px solid rgb(193, 192, 192);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 .accept-button {
   height: 20px;
   width: 40px;
-  border: 1px solid black;
+  font-size: 13px;
+  border: 2px solid rgb(3, 143, 213);
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: translateX(-20px);
 }
 
 .accept-button:hover {
