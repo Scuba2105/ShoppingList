@@ -1,5 +1,5 @@
 {
-  "endTimeStamp": 1684721888677,
+  "endTimeStamp": 1684725776201,
   "shoppingListData": [
     {
       "name": "apple",
@@ -160,6 +160,11 @@
       "name": "bickford's drink",
       "category": "Snacks, Spreads & Drink",
       "frequency": "Weekly"
+    },
+    {
+      "name": "bitter melon",
+      "category": "Fresh Produce",
+      "frequency": "As Required"
     }
   ]
 }

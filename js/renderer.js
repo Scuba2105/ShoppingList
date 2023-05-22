@@ -58,11 +58,11 @@ addToList.addEventListener('click', () => {
         itemFrequency.textContent = '----';
         
         // Alert the user that item has been added to the shooping list
-        alertMessage(`Success! ${selection} has been added to the shopping list`);
+        alertMessage(`${selection} has been added to the shopping list`);
 
     }
     else {
-        alertMessage('Information! This item has already been added to the list');
+        alertMessage('This item has already been added to the list', 'Information!');
     }
 });
 
@@ -271,13 +271,15 @@ async function saveShoppingData() {
 
 // Handle the message alert function
 const messageBox = document.querySelector('.alert-message');
-const messageText = document.querySelector('.message-text');
 const messageButton = document.querySelector('.accept-button');
 const alertCross = document.querySelector('.alert-cross');
+const primaryMessage = document.querySelector('.primary-message');
+const additionalMessage = document.querySelector('.additional-message');
 
-function alertMessage(message) {
-    messageText.textContent = message;
-    messageBox.style.display = 'flex';
+function alertMessage(message, information = 'Success!') {
+    primaryMessage.textContent = information;
+    additionalMessage.textContent = message;
+    messageBox.style.display = 'grid';
 };
 
 alertCross.addEventListener('click', () => {

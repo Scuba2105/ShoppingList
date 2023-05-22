@@ -409,7 +409,7 @@ h1 {
   background-color: white;
   font-size: 10px;
   font-family: Arial, Helvetica, sans-serif;
-  display: grid;
+  display: none;
   grid-template-columns: 1fr;
   grid-template-rows: 28px 1fr 40px;
   justify-content: center;
