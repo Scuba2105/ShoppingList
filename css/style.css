@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap");
+
 body {
   background-image: url(../image/fruit_and_veg.PNG);
   background-size: 500px 300px;
@@ -180,7 +181,7 @@ h1 {
 .container .select {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   height: 480px;
-  width: 400px;
+  width: 370px;
   background-color: #ffffff;
   border-radius: 40px;
   display: flex;
@@ -213,29 +214,29 @@ h1 {
 }
 .container .select .search-container label {
   margin: 10px;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
   color: rgb(2, 7, 54);
-  transform: translateX(-135px);
+  transform: translateX(-125px);
 }
 .container .select .search-container .search {
   height: 50px;
   width: 50px;
-  transform: translate(150px, -47px);
+  transform: translate(155px, -36px);
   z-index: 10;
 }
 .container .select .search-container .search .search-img {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
 }
 .container .select .search-container .search:hover {
   cursor: pointer;
 }
 .container .select .search-container input {
-  width: 350px;
-  height: 50px;
+  width: 325px;
+  height: 35px;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 18px;
   z-index: 5;
 }
 .container .select .search-list {
@@ -282,22 +283,29 @@ h1 {
   cursor: pointer;
 }
 .container .select .circle {
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
   border-radius: 50%;
-  background-color: rgb(2, 7, 54);
-  color: white;
-  margin-top: 40px;
+  border: 2px solid #4c2c01;
+  background-color: rgb(223, 202, 175);
+  background-size: contain;
+  color: rgb(2, 7, 54);
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transform: translateY(-60px);
+  transform: translateY(-30px);
 }
 .container .select .circle .item {
   font-size: 22px;
   font-weight: bold;
 }
+
+.container .select .circle .freq-info {
+  font-size: 14px;
+}
+
 .container .select .circle .freq {
   transform: translateY(-20px);
 }
@@ -305,11 +313,11 @@ h1 {
   font-weight: bold;
 }
 .container .select .circle .add {
-  height: 50px;
-  width: 120px;
-  font-size: 16px;
+  height: 40px;
+  width: 110px;
+  font-size: 14px;
   color: white;
-  background-color: #5050f5;
+  background-color: rgb(2, 7, 54);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -321,7 +329,7 @@ h1 {
 .container .current {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   height: 480px;
-  width: 400px;
+  width: 370px;
   background-color: #ffffff;
   border-radius: 40px;
   display: flex;
@@ -355,11 +363,11 @@ h1 {
   align-items: center;
 }
 .container .current .button-container .review-button1 {
-  height: 80px;
-  width: 250px;
+  height: 70px;
+  width: 225px;
   border: 3px solid rgb(2, 7, 54);
   border-radius: 15px;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: bold;
   background-color: white;
   display: flex;
@@ -368,11 +376,11 @@ h1 {
   color: rgb(2, 7, 54);
 }
 .container .current .button-container .review-button2 {
-  height: 80px;
-  width: 250px;
+  height: 70px;
+  width: 225px;
   border: 3px solid rgb(2, 7, 54);
   border-radius: 15px;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: bold;
   background-color: white;
   display: flex;
@@ -381,22 +389,23 @@ h1 {
   color: rgb(2, 7, 54);
 }
 .container .current .button-container .review-button3 {
-  height: 80px;
-  width: 250px;
-  border: 3px solid rgb(29, 123, 87);
+  height: 70px;
+  width: 225px;
+  border: 3px solid rgb(2, 7, 54);
   border-radius: 15px;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: bold;
-  background-color: rgb(29, 123, 87);
+  background-color: rgb(2, 7, 54);
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
 }
 .container .current .button-container .review-button:hover {
-  background: rgb(248, 171, 29);
+  background: white;
   color: rgb(2, 7, 54);
   cursor: pointer;
+  scale: 1.1
 }
 .container .current .button-container .review-button3:hover {
   cursor: pointer;

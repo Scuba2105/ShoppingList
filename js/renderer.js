@@ -40,11 +40,17 @@ const addToList = document.querySelector('.select_button');
 const searchList = document.querySelector('.search-list');
 
 // Change the cursor to pointer when mouse is over the button
-addToList.addEventListener('mouseover', hoverPointer);
+addToList.addEventListener('mouseover', hoverAddButton);
+addToList.addEventListener('mouseout', mouseOutButton);
 
-function hoverPointer() {
+function hoverAddButton() {
     this.style.cursor = 'pointer';
+    this.style.scale = '1.1';
 };
+
+function mouseOutButton() {
+    this.style.scale = '1';
+}
 
 // Add current selected item to the current shopping list. 
 addToList.addEventListener('click', () => {
