@@ -13,6 +13,6 @@ html(lang='en')
         each val, index in data
           div(class=`category${index+1}`)
             div(class=`${val.classAttribute}`)= val.category
-            div(class="content")= val.items.join(', ');
+            div(class="content")= val.items.map((item) => {return item.name}).join(', ')
           
       
