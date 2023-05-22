@@ -7,28 +7,12 @@ html(lang='en')
     title Document
     link(rel='stylesheet', href='../css/final-list.css')
   body
-    .layout
-      .category1.
-        
-        
-      .category2.
-        
-        
-      .category3.
-        
-        
-      .category4.
-        
-        
-      .category5.
-        
-        
-      .category6.
-        
-        
-      .category7.
-        
-        
-      .category8.
-        
-        
+    div(class="page-layout")
+        div(class="page-title") Shopping List #{date}
+        div(class="category-layout")
+          each val, index in data
+            div(class=`category${index}`)
+              div(class=`${val.classAttribute}`) val.itemCategory
+              div(class="content") 'apple', 'baby spinach', 'banana'
+          
+      
