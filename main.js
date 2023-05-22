@@ -36,6 +36,14 @@ ipcMain.on('data:saveData', (event, list) => {
   win.webContents.send('save-data-success', 'Data successfully saved!');
 });
 
+ipcMain.on('data:generateData',(event, list) => {
+  console.log(JSON.parse(list));
+});
+
+function createFinalListWindow() {
+  
+}
+
 function createWindow () {
   const mainWindow = new BrowserWindow({
     width: 1100,

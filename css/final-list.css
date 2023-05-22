@@ -17,7 +17,22 @@ body {
   align-items: center;
 }
 
-.layout {
+.page-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 1fr;
+}
+
+.page-title {
+  font-size: 28px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-layout {
   height: 100%;
   width: 100%;
   display: grid;

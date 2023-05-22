@@ -272,6 +272,15 @@ async function saveShoppingData() {
     const data = await window.electronAPI.saveData(JSON.stringify(shoppingList));
 }
 
+// Generate the new screen with final shopping list for printing
+const generateButton = document.querySelector('.review-button3');
+generateButton.addEventListener('click', generateFinalList);
+
+async function generateFinalList() {
+    const data = await window.electronAPI.generateData(JSON.stringify(shoppingList));
+}
+
+
 // Handle the message alert function
 const messageBox = document.querySelector('.alert-message');
 const messageButton = document.querySelector('.accept-button');

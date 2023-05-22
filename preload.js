@@ -10,5 +10,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     primaryMessage.textContent = 'Success!';
     additionalMessage.textContent = message;
     messageBox.style.display = 'grid';
-  })   
+  }),
+  generateData: (shoppingList) => ipcRenderer.send('data:generateData', shoppingList)  
 });
