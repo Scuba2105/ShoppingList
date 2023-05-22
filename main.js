@@ -3,9 +3,9 @@ const path = require('path');
 const fs = require('fs');
 const { DateTime } = require("luxon");
 const setupPug = require("electron-pug");
-const { getEndDate } = require("./utilities/util")
+const { getEndDate } = require("./utilities/util");
 
-//define the main window
+//define the main windows and pug template engine
 let win;
 let win2;
 let pug;
@@ -17,7 +17,21 @@ async function sendWeeklyData() {
   return dataArray
 };
 
+async function printList() {
+  const printOptions = require("./utilities/print_options.js");
+  win2.webContents.print(printOptions, (success, failureReason) => {
+    if (!success) {
+      console.log(failureReason);
+    } 
+    else {
+      console.log('Print Initiated');
+    }
+    
+  });
+};
+
 ipcMain.handle('data:sendWeeklyData', sendWeeklyData);
+ipcMain.handle('printList', printList);
 
 ipcMain.on('data:saveData', (event, list) => {
   const listArray = JSON.parse(list);
@@ -79,7 +93,6 @@ function createFinalListWindow() {
   } catch (error) {
     console.log(error);
   }
-   
 }
 
 function createWindow () {
@@ -113,8 +126,6 @@ app.whenReady().then(() => {
         }
     })
 })
-
-
 
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit()

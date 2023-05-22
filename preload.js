@@ -11,5 +11,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     additionalMessage.textContent = message;
     messageBox.style.display = 'grid';
   }),
-  generateData: (shoppingList) => ipcRenderer.send('data:generateData', shoppingList)  
+  generateData: (shoppingList) => ipcRenderer.send('data:generateData', shoppingList),
+  printList: () => ipcRenderer.invoke('printList') 
 });
