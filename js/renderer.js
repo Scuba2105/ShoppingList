@@ -22,7 +22,6 @@ async function getData() {
         });
         shoppingList.push(...weeklyItems);
     }
-    console.log(availableItems, shoppingList);
 };
 
 // Get the data from the main proces

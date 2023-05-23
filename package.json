@@ -1,7 +1,7 @@
 {
   "name": "shoppinglistgenerator",
-  "version": "1.0.0",
-  "description": "Shopping Application for weely groceries",
+  "version": "1.1.1",
+  "description": "Shopping Application for weekly groceries",
   "main": "main.js",
   "scripts": {
     "test": "electron main.js",

@@ -1,5 +1,5 @@
 {
-  "endTimeStamp": 2684755308810,
+  "endTimeStamp": 1685330988072,
   "shoppingListData": [
     {
       "name": "apple",
@@ -179,6 +179,11 @@
     {
       "name": "domestos",
       "category": "Cleaning & Household",
+      "frequency": "As Required"
+    },
+    {
+      "name": "bean sprouts",
+      "category": "Fresh Produce",
       "frequency": "As Required"
     }
   ]

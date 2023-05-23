@@ -3,30 +3,17 @@ const path = require('path');
 const fs = require('fs');
 const { DateTime } = require("luxon");
 const setupPug = require("electron-pug");
-const { getEndDate } = require("./utilities/util");
+const { getEndDate, generateItemArray, getCurrentItemData } = require("./utilities/util");
 
-//define the main windows and pug template engine
+// Define the main windows and pug template engine, and root directory
 let win;
 let win2;
 let pug;
+const dirname = __dirname
 
 // Define the async function for sending the data to the renderer process.
 async function sendWeeklyData() {
-  const allData = fs.readFileSync(path.join(__dirname, 'data', 'shopping_items.json'))
-  const currentData = fs.readFileSync(path.join(__dirname, 'data', 'current_data.json'))
-  const allDataArray = JSON.parse(allData);
-  const currentDataObject = JSON.parse(currentData);
-  const currentTimeStamp = DateTime.now().ts;
-  const endDateTimeStamp = currentDataObject.endTimeStamp;
-  console.log(currentTimeStamp, endDateTimeStamp);
-  let dataObject;
-  if (currentTimeStamp < endDateTimeStamp) {
-    dataObject = {allData: allDataArray, currentData: currentDataObject.shoppingListData};
-  }
-  else {
-    dataObject = {allData: allDataArray};
-  }
-  console.log(dataObject);
+  const dataObject = getCurrentItemData(dirname);
   return JSON.stringify(dataObject);
 };
 
@@ -59,19 +46,7 @@ ipcMain.on('data:saveData', (event, list) => {
 
 ipcMain.on('data:generateData',async (event, list) => {
   try {
-    const shoppingList = JSON.parse(list);
-    const itemArray = [];
-    const itemCategories = ['Fresh Produce','Dairy','Grains & Cereals','Baking','Frozen','Oils & Seasoning',
-    'Snacks, Spreads & Drink','Cleaning & Household'];
-    itemCategories.forEach((itemCategory) => {
-      const categoryItems = shoppingList.filter((item) => {
-        return item.category == itemCategory;
-      })
-      const classAtt = itemCategory.toLowerCase().replace(/\s/g, '-').replace('&', '').replace(',','').replace('--', '-');
-      categoryObject = {category: itemCategory, classAttribute: classAtt, items: categoryItems};
-      itemArray.push(categoryObject);
-    });
-
+    const itemArray = generateItemArray(list);
     const endDateArray = getEndDate().toISO().split('T')[0].split('-');
     const endDate = `${endDateArray[2]}/${endDateArray[1]}/${endDateArray[0]}`
     const pugLocals = {date: endDate, data: itemArray};
@@ -101,7 +76,6 @@ function createFinalListWindow() {
       const windowTitle = `Shopping List Generator v${version}`;
       win2.setTitle(windowTitle);
     });
-    win2.webContents.openDevTools();
     win2.loadFile('./pug/final-list.pug');
   } catch (error) {
     console.log(error);
@@ -125,10 +99,8 @@ function createWindow () {
     const windowTitle = `Shopping List Generator v${version}`;
     mainWindow.setTitle(windowTitle);
   });
-  mainWindow.webContents.openDevTools();
-  mainWindow.loadFile('./html/index.html')
+  mainWindow.loadFile('./html/index.html');
 }
-
 
 app.whenReady().then(() => {
     console.log('App is loading');
