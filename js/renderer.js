@@ -56,10 +56,13 @@ function mouseOutButton() {
 addToList.addEventListener('click', () => {
     const selection = selectedItem.textContent;
     const selectionLowerCase = selection.toLowerCase();
+    const availableNames = availableItems.map((item) => {
+        return item.name;
+    });
     const itemNames = shoppingList.map((item) => {
         return item.name;
     })
-    if (!itemNames.includes(selectionLowerCase)) {
+    if (!itemNames.includes(selectionLowerCase) && availableNames.includes(selectionLowerCase)) {
         const newItemEntry = availableItems.find((item) => {
             return item.name == selectionLowerCase;
         });
@@ -73,6 +76,9 @@ addToList.addEventListener('click', () => {
         // Alert the user that item has been added to the shooping list
         alertMessage(`${selection} has been added to the shopping list`);
 
+    }
+    else if (selection == '----') {
+        alertMessage('The currently selected item is empty and has not been added', 'Empty Item!', 'rgb(254, 213, 0)');
     }
     else {
         // Set the empty text values in the circle
